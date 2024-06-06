@@ -4,7 +4,8 @@ import {
   CardHeader,
   CardBody,
   Avatar,
-  Button,
+  Button, 
+  Link,
 } from "@nextui-org/react";
 
 export default async function UserPage({ params }) {
@@ -13,8 +14,11 @@ export default async function UserPage({ params }) {
   const catchPhrase = user.company.catchPhrase.split(" ");
   return (
     <section className="py-36">
-      <div className="container flex items-center justify-center mx-auto px-4">
-        <Card className="py-4 lg:w-3/4 xl:w-1/2">
+      <div className="container mx-auto gap-2 lg:w-3/4 xl:w-1/2">
+      <Link className="py-4" isBlock showAnchorIcon href="/users" color="foreground">
+        All Users
+      </Link>
+        <Card className="py-4">
           <CardHeader className="justify-between">
             <div className="flex gap-5">
               <Avatar
