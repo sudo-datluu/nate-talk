@@ -1,8 +1,6 @@
-import React from "react";
-import { User, Tooltip } from "@nextui-org/react";
+import { User, Tooltip, Link } from "@nextui-org/react";
 import { UserData } from "./types/User";
 import { EyeIcon, EditIcon, DeleteIcon } from "../components/icons";
-import { useRouter } from "next/navigation";
 
 export const columns = [
   {
@@ -21,10 +19,6 @@ export const columns = [
 
 export const renderCell = (user: UserData, columnKey: React.Key) => {
   const cellValue = user[columnKey as keyof UserData];
-  const router = useRouter();
-  function goToUserDetails({userID}: {userID: number}) {
-    router.push(`/users/${userID}`);
-  }
   switch (columnKey) {
     case "name":
       return (
@@ -40,13 +34,12 @@ export const renderCell = (user: UserData, columnKey: React.Key) => {
       return (
         <div className="relative flex items-center gap-4">
           <Tooltip content="Details" >
-            <span 
-                className="cursor-pointer text-lg text-default-400 active:opacity-50"
-                onClick={() => goToUserDetails({userID: user.id})}
-            >
-              <EyeIcon />
-            </span>
-          </Tooltip>
+        <Link href={`/users/${user.id}`}>
+          <span className="cursor-pointer text-lg text-default-400 active:opacity-50">
+            <EyeIcon />
+          </span>
+        </Link>
+      </Tooltip>
           <Tooltip content="Edit user">
             <span 
                 className="cursor-pointer text-lg text-default-400 active:opacity-50"

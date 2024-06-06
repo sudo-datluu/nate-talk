@@ -13,7 +13,7 @@ export default async function UserPage({ params }) {
   const catchPhrase = user.company.catchPhrase.split(" ");
   return (
     <section className="py-36">
-      <div className="container flex items-center justify-center">
+      <div className="container flex items-center justify-center mx-auto px-4">
         <Card className="py-4 lg:w-3/4 xl:w-1/2">
           <CardHeader className="justify-between">
             <div className="flex gap-5">
